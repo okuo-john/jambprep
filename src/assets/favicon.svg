@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Purple rounded background -->
+  <rect width="48" height="48" rx="12" fill="#4F39F6"></rect>
+
+  <!-- BookOpen icon -->
+  <path d="M24 12.5
+       C20.5 10.5 16.5 10.5 13 12.5
+       V35.5
+       C16.5 33.5 20.5 33.5 24 35.5
+       M24 12.5
+       C27.5 10.5 31.5 10.5 35 12.5
+       V35.5
+       C31.5 33.5 27.5 33.5 24 35.5
+       M24 12.5
+       V35.5" stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
