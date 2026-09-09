@@ -20,12 +20,35 @@ function Results() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  
+
   // REVIEW ANSWERS STATE
   const [showReview, setShowReview] = useState(false);
 
-  // GET QUIZ RESULT DATA:This is where the Results page receives the data from Quiz.jsx.
-  const resultData = location.state;
+
+  // GET RESULT FROM NAVIGATION
+  const navigationResult = location.state;
+
+
+  // GET SAVED RESULT FROM LOCAL STORAGE
+  const savedResult = localStorage.getItem("jambprepResult");
+
+
+  let storedResult = null;
+
+  if (savedResult) {
+    try {
+      storedResult = JSON.parse(savedResult);
+    } catch (error) {
+      storedResult = null;
+    }
+  }
+
+
+  // USE THE NEW RESULT IF AVAILABLE.
+  // OTHERWISE USE THE RESULT SAVED IN LOCAL STORAGE.
+  const resultData =
+    navigationResult || storedResult;
+
 
   // SAFETY CHECK
   if (!resultData) {
@@ -51,7 +74,7 @@ function Results() {
     );
   }
 
-  
+
   // GET DATA
   const {
     score = 0,
@@ -61,7 +84,7 @@ function Results() {
     subject = "Subject",
     tutorId,
     tutor = "Tutor",
-    timeUsed = "1m 26s",
+    timeUsed = "30m",
   } = resultData;
 
 
@@ -71,19 +94,24 @@ function Results() {
       ? Math.round((score / totalQuestions) * 100)
       : 0;
 
+
   // Counting ANSWERED / UNANSWERED Questions
-  const answeredCount = Object.keys(selectedAnswers).length;
+  const answeredCount =
+    Object.keys(selectedAnswers).length;
+
 
   const unansweredCount = Math.max(
     totalQuestions - answeredCount,
     0
   );
 
+
   // CALCULATING WRONG ANSWERS
   const wrongCount = Math.max(
     answeredCount - score,
     0
   );
+
 
   // PERFORMANCE MESSAGE
   let performanceMessage = "";
@@ -92,19 +120,27 @@ function Results() {
   if (percentage >= 70) {
     performanceMessage =
       "Excellent work! Keep up the good performance.";
+
     performanceStyle =
       "border-green-200 bg-green-50 text-green-700";
+
   } else if (percentage >= 50) {
+
     performanceMessage =
       "Good effort! Keep practicing to improve your score.";
+
     performanceStyle =
       "border-yellow-200 bg-yellow-50 text-yellow-700";
+
   } else {
+
     performanceMessage =
       "Keep practicing! Consistent effort leads to success.";
+
     performanceStyle =
       "border-red-200 bg-red-50 text-red-600";
   }
+
 
   // SCORE COLOR
   const scoreColor =
@@ -165,6 +201,7 @@ function Results() {
 
             </div>
 
+
             {/* TITLE */}
 
             <h1 className="text-3xl font-extrabold md:text-4xl">
@@ -172,6 +209,7 @@ function Results() {
             </h1>
 
           </div>
+
 
           {/* ==================================================
               RESULT CONTENT
@@ -213,6 +251,7 @@ function Results() {
 
                 </div>
 
+
                 {/* PERCENTAGE */}
 
                 <p
@@ -227,6 +266,7 @@ function Results() {
 
               </div>
 
+
               {/* =================================================
                   RIGHT SIDE STATISTICS
               ================================================= */}
@@ -240,6 +280,7 @@ function Results() {
                 >
                   {performanceMessage}
                 </div>
+
 
                 {/* STATISTICS GRID */}
 
@@ -263,6 +304,7 @@ function Results() {
 
                   </div>
 
+
                   {/* WRONG */}
 
                   <div className="rounded-xl border border-red-100 bg-red-50 p-4">
@@ -281,6 +323,7 @@ function Results() {
 
                   </div>
 
+
                   {/* UNANSWERED */}
 
                   <div className="rounded-xl border border-yellow-100 bg-yellow-50 p-4">
@@ -298,6 +341,7 @@ function Results() {
                     </p>
 
                   </div>
+
 
                   {/* TIME USED */}
 
@@ -322,6 +366,7 @@ function Results() {
               </div>
 
             </div>
+
 
             {/* =================================================
                 ACTION BUTTONS
@@ -350,6 +395,7 @@ function Results() {
 
               </button>
 
+
               {/* =================================================
                   TRY ANOTHER TEST
               ================================================= */}
@@ -364,6 +410,7 @@ function Results() {
                 Try Another Test
 
               </button>
+
 
               {/* =================================================
                   HOME
@@ -385,6 +432,7 @@ function Results() {
           </div>
 
         </div>
+
 
         {/* ====================================================
             ANSWER REVIEW
@@ -410,6 +458,7 @@ function Results() {
 
             </div>
 
+
             {/* =================================================
                 QUESTIONS
             ================================================= */}
@@ -421,13 +470,16 @@ function Results() {
                 const userAnswer =
                   selectedAnswers[question.id];
 
+
                 const isAnswered =
                   userAnswer !== undefined &&
                   userAnswer !== null &&
                   userAnswer !== "";
 
+
                 const isCorrect =
                   userAnswer === question.correctAnswer;
+
 
                 return (
 
@@ -458,6 +510,7 @@ function Results() {
 
                       )}
 
+
                       <div className="flex-1">
 
                         {/* DISPLAY QUESTION NUMBER */}
@@ -465,6 +518,7 @@ function Results() {
                         <p className="mb-2 text-sm font-medium text-[#94A3B8]">
                           Question {index + 1}
                         </p>
+
 
                         {/* DISPLAY QUESTION */}
 
@@ -476,6 +530,7 @@ function Results() {
 
                     </div>
 
+
                     {/* =================================================
                         YOUR ANSWER
                     ================================================= */}
@@ -485,6 +540,7 @@ function Results() {
                       <p className="mb-2 text-sm font-semibold text-[#64748B]">
                         Your answer
                       </p>
+
 
                       <div
                         className={`rounded-xl px-4 py-3 text-sm font-medium ${
@@ -504,6 +560,7 @@ function Results() {
 
                     </div>
 
+
                     {/* =================================================
                         CORRECT ANSWER
                     ================================================= */}
@@ -515,6 +572,7 @@ function Results() {
                         <p className="mb-2 text-sm font-semibold text-[#64748B]">
                           Correct answer
                         </p>
+
 
                         <div className="rounded-xl bg-green-50 px-4 py-3 text-sm font-medium text-green-700">
 
@@ -533,6 +591,7 @@ function Results() {
               })}
 
             </div>
+
 
             {/* =================================================
                 HIDE REVIEW BUTTON
@@ -558,6 +617,7 @@ function Results() {
         )}
 
       </div>
+
     </div>
   );
 }

@@ -11,6 +11,30 @@ import {
   Star,
 } from "lucide-react";
 
+// ============================================================
+// TUTOR IMAGES
+// ============================================================
+
+import mathematicsTutor1 from "../assets/images/tutors/mathematics-tutor-1.jpg";
+import mathematicsTutor2 from "../assets/images/tutors/mathematics-tutor-2.jpg";
+import mathematicsTutor3 from "../assets/images/tutors/mathematics-tutor-3.jpg";
+import mathematicsTutor4 from "../assets/images/tutors/mathematics-tutor-4.jpg";
+
+import englishTutor1 from "../assets/images/tutors/english-tutor-1.jpg";
+import englishTutor2 from "../assets/images/tutors/english-tutor-2.jpg";
+import englishTutor3 from "../assets/images/tutors/english-tutor-3.jpg";
+import englishTutor4 from "../assets/images/tutors/english-tutor-4.jpg";
+
+import physicsTutor1 from "../assets/images/tutors/physics-tutor-1.jpg";
+import physicsTutor2 from "../assets/images/tutors/physics-tutor-2.jpg";
+import physicsTutor3 from "../assets/images/tutors/physics-tutor-3.jpg";
+import physicsTutor4 from "../assets/images/tutors/physics-tutor-4.jpg";
+
+import chemistryTutor1 from "../assets/images/tutors/chemistry-tutor-1.jpg";
+import chemistryTutor2 from "../assets/images/tutors/chemistry-tutor-2.jpg";
+import chemistryTutor3 from "../assets/images/tutors/chemistry-tutor-3.jpg";
+import chemistryTutor4 from "../assets/images/tutors/chemistry-tutor-4.jpg";
+
 
 // ============================================================
 // SUBJECT DATA
@@ -25,7 +49,7 @@ const subjects = [
     color: "#4F39F6",
     lightColor: "#EEF2FF",
     questions: 40,
-    duration: "60 Minutes",
+    duration: "30 Minutes",
 
     tutors: [
       {
@@ -34,6 +58,7 @@ const subjects = [
         topics: "Algebra & Calculus",
         experience: "12 Years Experience",
         rating: "4.9",
+        image: mathematicsTutor1,
       },
       {
         id: 2,
@@ -41,6 +66,7 @@ const subjects = [
         topics: "Statistics & Probability",
         experience: "9 Years Experience",
         rating: "4.8",
+        image: mathematicsTutor2,
       },
       {
         id: 3,
@@ -48,6 +74,7 @@ const subjects = [
         topics: "Geometry & Trigonometry",
         experience: "15 Years Experience",
         rating: "4.9",
+        image: mathematicsTutor3,
       },
       {
         id: 4,
@@ -55,6 +82,7 @@ const subjects = [
         topics: "Number Theory & Sets",
         experience: "7 Years Experience",
         rating: "4.8",
+        image: mathematicsTutor4,
       },
     ],
   },
@@ -67,7 +95,7 @@ const subjects = [
     color: "#00A878",
     lightColor: "#ECFDF5",
     questions: 40,
-    duration: "60 Minutes",
+    duration: "30 Minutes",
 
     tutors: [
       {
@@ -76,6 +104,7 @@ const subjects = [
         topics: "Comprehension & Literature",
         experience: "12 Years Experience",
         rating: "4.9",
+        image: englishTutor1,
       },
       {
         id: 2,
@@ -83,6 +112,7 @@ const subjects = [
         topics: "Grammar & Usage",
         experience: "10 Years Experience",
         rating: "4.8",
+        image: englishTutor2,
       },
       {
         id: 3,
@@ -90,6 +120,7 @@ const subjects = [
         topics: "Oral English & Phonetics",
         experience: "8 Years Experience",
         rating: "4.9",
+        image: englishTutor3,
       },
       {
         id: 4,
@@ -97,6 +128,7 @@ const subjects = [
         topics: "Essay Writing & Vocabulary",
         experience: "11 Years Experience",
         rating: "4.8",
+        image: englishTutor4,
       },
     ],
   },
@@ -109,7 +141,7 @@ const subjects = [
     color: "#FF8A00",
     lightColor: "#FFF7E8",
     questions: 40,
-    duration: "60 Minutes",
+    duration: "30 Minutes",
 
     tutors: [
       {
@@ -118,6 +150,7 @@ const subjects = [
         topics: "Mechanics & Motion",
         experience: "14 Years Experience",
         rating: "4.9",
+        image: physicsTutor1,
       },
       {
         id: 2,
@@ -125,6 +158,7 @@ const subjects = [
         topics: "Waves & Optics",
         experience: "10 Years Experience",
         rating: "4.8",
+        image: physicsTutor2,
       },
       {
         id: 3,
@@ -132,6 +166,7 @@ const subjects = [
         topics: "Electricity & Magnetism",
         experience: "13 Years Experience",
         rating: "4.9",
+        image: physicsTutor3,
       },
       {
         id: 4,
@@ -139,6 +174,7 @@ const subjects = [
         topics: "Heat & Thermodynamics",
         experience: "8 Years Experience",
         rating: "4.8",
+        image: physicsTutor4,
       },
     ],
   },
@@ -151,7 +187,7 @@ const subjects = [
     color: "#E9005B",
     lightColor: "#FFF0F4",
     questions: 40,
-    duration: "60 Minutes",
+    duration: "30 Minutes",
 
     tutors: [
       {
@@ -160,6 +196,7 @@ const subjects = [
         topics: "Organic Chemistry",
         experience: "12 Years Experience",
         rating: "4.9",
+        image: chemistryTutor1,
       },
       {
         id: 2,
@@ -167,6 +204,7 @@ const subjects = [
         topics: "Inorganic Chemistry",
         experience: "9 Years Experience",
         rating: "4.8",
+        image: chemistryTutor2,
       },
       {
         id: 3,
@@ -174,6 +212,7 @@ const subjects = [
         topics: "Physical Chemistry",
         experience: "15 Years Experience",
         rating: "4.9",
+        image: chemistryTutor3,
       },
       {
         id: 4,
@@ -181,29 +220,11 @@ const subjects = [
         topics: "Chemical Reactions & Equations",
         experience: "7 Years Experience",
         rating: "4.8",
+        image: chemistryTutor4,
       },
     ],
   },
 ];
-
-
-// ============================================================
-// GET TUTOR INITIALS
-// ============================================================
-
-function getInitials(name) {
-  return name
-    .split(" ")
-    .filter(
-      (word) =>
-        word !== "Mr." &&
-        word !== "Mrs." &&
-        word !== "Miss"
-    )
-    .map((word) => word[0])
-    .slice(0, 2)
-    .join("");
-}
 
 
 // ============================================================
@@ -213,7 +234,6 @@ function getInitials(name) {
 function Subjects() {
   return (
     <main className="min-h-screen bg-[#F8FAFC]">
-
 
       {/* ======================================================
           PAGE HEADER
@@ -232,13 +252,11 @@ function Subjects() {
 
           </div>
 
-
           <h1 className="text-4xl font-extrabold tracking-tight text-[#0F172A] md:text-5xl">
 
             Choose Your Subject
 
           </h1>
-
 
           <p className="mx-auto mt-4 max-w-[700px] text-base leading-7 text-[#64748B] md:text-lg">
 
@@ -257,18 +275,15 @@ function Subjects() {
 
       <section className="mx-auto w-full max-w-[1308px] px-6 py-14 md:py-20">
 
-
         {subjects.map((subject) => {
 
           const SubjectIcon = subject.icon;
-
 
           return (
             <section
               key={subject.id}
               className="mb-16 overflow-hidden rounded-3xl border border-[#E2E8F0] bg-white shadow-md last:mb-0"
             >
-
 
               {/* ==================================================
                   COLORED SUBJECT HEADER
@@ -289,7 +304,6 @@ function Subjects() {
                   }}
                 ></div>
 
-
                 <div
                   className="absolute -bottom-20 left-1/3 h-48 w-48 rounded-full opacity-10"
                   style={{
@@ -297,9 +311,7 @@ function Subjects() {
                   }}
                 ></div>
 
-
                 <div className="relative flex flex-col gap-7 md:flex-row md:items-center md:justify-between">
-
 
                   {/* ===============================
                       SUBJECT INFORMATION
@@ -319,7 +331,6 @@ function Subjects() {
 
                     </div>
 
-
                     {/* Name */}
                     <div>
 
@@ -332,13 +343,11 @@ function Subjects() {
                         JAMB Subject
                       </p>
 
-
                       <h2 className="text-2xl font-extrabold text-[#0F172A] md:text-3xl">
 
                         {subject.name}
 
                       </h2>
-
 
                       <p className="mt-1 text-sm text-[#64748B] md:text-base">
 
@@ -356,7 +365,6 @@ function Subjects() {
                   =============================== */}
 
                   <div className="flex flex-wrap gap-3">
-
 
                     {/* Questions */}
                     <div className="flex items-center gap-3 rounded-xl bg-white px-4 py-3 shadow-sm">
@@ -376,7 +384,6 @@ function Subjects() {
                         />
 
                       </div>
-
 
                       <div>
 
@@ -412,7 +419,6 @@ function Subjects() {
 
                       </div>
 
-
                       <div>
 
                         <p className="text-xs text-[#94A3B8]">
@@ -447,7 +453,6 @@ function Subjects() {
 
                       </div>
 
-
                       <div>
 
                         <p className="text-xs text-[#94A3B8]">
@@ -475,7 +480,6 @@ function Subjects() {
 
               <div className="bg-[#FAFBFF] px-6 py-8 md:px-10 md:py-10">
 
-
                 {/* Heading */}
                 <div className="mb-7">
 
@@ -488,7 +492,6 @@ function Subjects() {
                       }}
                     ></div>
 
-
                     <h3 className="text-xl font-bold text-[#0F172A]">
 
                       Choose a {subject.name} Tutor
@@ -496,7 +499,6 @@ function Subjects() {
                     </h3>
 
                   </div>
-
 
                   <p className="mt-2 ml-4 text-sm text-[#64748B]">
 
@@ -513,7 +515,6 @@ function Subjects() {
 
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
 
-
                   {subject.tutors.map((tutor) => (
 
                     <div
@@ -529,9 +530,7 @@ function Subjects() {
                         }}
                       ></div>
 
-
                       <div className="p-6">
-
 
                         {/* ==========================
                             TUTOR PROFILE
@@ -539,19 +538,16 @@ function Subjects() {
 
                         <div className="flex items-center gap-4">
 
+                          {/* ==================================================
+                              TUTOR IMAGE
+                              ONLY THIS PART WAS CHANGED
+                          ================================================== */}
 
-                          {/* Avatar */}
-                          <div
-                            className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full text-lg font-extrabold"
-                            style={{
-                              backgroundColor: subject.lightColor,
-                              color: subject.color,
-                            }}
-                          >
-
-                            {getInitials(tutor.name)}
-
-                          </div>
+                          <img
+                            src={tutor.image}
+                            alt={tutor.name}
+                            className="h-14 w-14 shrink-0 rounded-full object-cover"
+                          />
 
 
                           {/* Name */}
@@ -562,7 +558,6 @@ function Subjects() {
                               {tutor.name}
 
                             </h4>
-
 
                             <p
                               className="mt-1 text-xs font-medium"
@@ -596,7 +591,6 @@ function Subjects() {
 
                           </p>
 
-
                           <p className="mt-2 min-h-[48px] text-sm font-semibold leading-6 text-[#334155]">
 
                             {tutor.topics}
@@ -611,7 +605,6 @@ function Subjects() {
                         ========================== */}
 
                         <div className="mt-5 flex items-end justify-between">
-
 
                           {/* Experience */}
                           <div>
@@ -635,7 +628,6 @@ function Subjects() {
                             <p className="text-xs text-[#94A3B8]">
                               Rating
                             </p>
-
 
                             <div className="mt-1 flex items-center justify-end gap-1">
 
